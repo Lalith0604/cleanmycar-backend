@@ -12,25 +12,26 @@ import java.util.List;
 public class PlanController {
     private final PlanService planService;
 
-    public PlanController(PlanService planService) {
-        this.planService = planService;
-    }
+        public PlanController(PlanService planService) {
+                this.planService = planService;
+                    }
 
-    @GetMapping
-    public ResponseEntity<List<Plan>> list() {
-        return ResponseEntity.ok(planService.getAll());
-    }
+                        @GetMapping
+                            public ResponseEntity<List<Plan>> list() {
+                                    return ResponseEntity.ok(planService.getAll());
+                                        }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<?> getById(@PathVariable Long id) {
-        Plan plan = planService.getById(id);
-        if (plan == null) return ResponseEntity.notFound().build();
-        return ResponseEntity.ok(plan);
-    }
+                                            @GetMapping("/{id}")
+                                                public ResponseEntity<?> getById(@PathVariable Long id) {
+                                                        Plan plan = planService.getById(id);
+                                                                if (plan == null) return ResponseEntity.notFound().build();
+                                                                        return ResponseEntity.ok(plan);
+                                                                            }
 
-    @PostMapping
-    public ResponseEntity<Plan> create(@RequestBody Plan plan) {
-        Plan created = planService.create(plan);
-        return ResponseEntity.ok(created);
-    }
-}
+                                                                                @PostMapping
+                                                                                    public ResponseEntity<Plan> create(@RequestBody Plan plan) {
+                                                                                            Plan created = planService.create(plan);
+                                                                                                    return ResponseEntity.ok(created);
+                                                                                                        }
+                                                                                                        }
+                                                                                                        
